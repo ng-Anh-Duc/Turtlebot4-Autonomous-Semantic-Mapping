@@ -1,0 +1,31 @@
+sim_detector_node:
+  ros__parameters:
+    model_path: "yolov8n.pt"
+    confidence_threshold: 0.6
+    device: "auto"  # cpu, cuda, auto
+    image_topic: "/camera/image_raw"
+    depth_topic: "/camera/depth/image_raw"
+    camera_info_topic: "/camera/camera_info"
+    use_depth: true
+    target_classes: 
+      - "chair"
+      - "couch"
+      - "potted plant"
+      - "bottle"
+      - "cup"
+      - "person"
+    throttle_rate: 5.0  # Hz
+
+oakd_detector_node:
+  ros__parameters:
+    blob_path: "yolov8n_6shaves.blob"
+    confidence_threshold: 0.6
+    camera_fps: 15
+    target_classes:
+      - "chair"
+      - "couch"
+      - "potted plant"
+      - "bottle"
+      - "cup"
+      - "person"
+    publish_images: true

@@ -1,0 +1,33 @@
+services:
+  ros2:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    container_name: turtlebot4_semantic
+    privileged: true
+    
+    ports:
+      - "6080:6080"    # noVNC web interface
+      - "5900:5900"    # VNC direct connect
+      - "9090:9090"    # rosbridge websocket
+    
+    environment:
+      - DISPLAY=:1
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - MESA_GL_VERSION_OVERRIDE=3.3
+      - GALLIUM_DRIVER=llvmpipe
+      - QT_QUICK_BACKEND=software
+      - QT_X11_NO_MITSHM=1
+      - ROS_DOMAIN_ID=0
+      
+    volumes:
+      - ./src:/ros2_ws/src/semantic_mapping:rw
+      - ./maps:/ros2_ws/maps:rw
+    
+    # Shared memory cho GUI apps
+    shm_size: '4gb'
+    
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

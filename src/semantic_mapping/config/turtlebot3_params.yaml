@@ -1,0 +1,22 @@
+# TurtleBot3 Simulation Parameters
+frontier_explorer:
+  ros__parameters:
+    min_frontier_size: 3
+    cluster_distance: 0.5
+    exploration_rate: 10.0
+    min_goal_distance: 0.5
+    max_goal_distance: 20.0
+
+semantic_mapper:
+  ros__parameters:
+    yolo_model: 'yolov8n.pt'
+    confidence_threshold: 0.8
+    detection_rate: 0.5
+    min_object_distance: 0.5
+    # TurtleBot3 camera topics
+    rgb_topic: '/camera/image_raw'
+    depth_topic: '/camera/depth/image_raw'
+    camera_info_topic: '/camera/camera_info'
+    camera_frame: 'camera_rgb_optical_frame'
+    save_path: '/ros2_ws/maps/semantic_map.json'
+    target_classes: ['person', 'chair', 'backpack', 'bottle', 'laptop', 'cup']
