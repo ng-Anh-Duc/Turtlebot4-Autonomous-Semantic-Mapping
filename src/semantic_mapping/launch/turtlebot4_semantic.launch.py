@@ -17,7 +17,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'blob_path',
-            default_value='/home/ubuntu/yolov8n_6shaves.blob',
+            default_value='/home/phong/yolov8n.blob',
             description='Path to YOLOv8 blob file for OAK-D'
         ),
         
@@ -61,7 +61,7 @@ def generate_launch_description():
                     'depth_topic': '/oakd/rgb/preview/image_raw/compressedDepth',
                     'camera_info_topic': '/oakd/rgb/preview/camera_info',
                     'camera_frame': 'oakd_rgb_camera_optical_frame',
-                    'save_path': '/home/semantic_map.json',
+                    'save_path': '/home/phong/semantic_map.json',
                 }
             ]
         ),
