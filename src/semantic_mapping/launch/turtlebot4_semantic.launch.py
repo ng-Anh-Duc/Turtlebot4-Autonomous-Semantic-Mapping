@@ -58,10 +58,10 @@ def generate_launch_description():
                     'use_sim_time': use_sim_time,
                     # TurtleBot4 OAK-D topics (check với: ros2 topic list)
                     'rgb_topic': '/oakd/rgb/preview/image_raw',
-                    'depth_topic': '/oakd/rgb/preview/depth',
+                    'depth_topic': '/oakd/rgb/preview/image_raw/compressedDepth',
                     'camera_info_topic': '/oakd/rgb/preview/camera_info',
                     'camera_frame': 'oakd_rgb_camera_optical_frame',
-                    'save_path': '/home/ubuntu/semantic_map.json',
+                    'save_path': '/home/semantic_map.json',
                 }
             ]
         ),
