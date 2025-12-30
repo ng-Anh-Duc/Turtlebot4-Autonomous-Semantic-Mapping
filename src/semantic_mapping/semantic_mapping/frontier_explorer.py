@@ -75,7 +75,7 @@ class FrontierExplorer(Node):
         
         # Wait for Nav2
         self.get_logger().info('⏳ Waiting for Nav2 to become active...')
-        self.navigator.waitUntilNav2Active()
+        # self.navigator.waitUntilNav2Active()
         self.get_logger().info('✅ Nav2 is active!')
         
         # Timer

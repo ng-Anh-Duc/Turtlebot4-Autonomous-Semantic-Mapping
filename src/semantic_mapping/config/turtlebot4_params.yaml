@@ -1,22 +1,35 @@
 # TurtleBot4 Real Robot Parameters
 frontier_explorer:
   ros__parameters:
-    min_frontier_size: 1
-    cluster_distance: 0.5
+    map_topic: "map"             # Topic bản đồ từ SLAM
+    robot_base_frame: "base_link" # Frame của robot
+    odom_frame: "odom"
+    min_frontier_size: 5
+    cluster_distance: 0.6
     exploration_rate: 3.0
-    min_goal_distance: 0.3
-    max_goal_distance: 8.0
+    min_goal_distance: 0.8
+    max_goal_distance: 15.0
 
 semantic_mapper:
   ros__parameters:
     yolo_model: 'yolov8n.pt'
-    confidence_threshold: 0.8
+    confidence_threshold: 0.6
     detection_rate: 0.5
     min_object_distance: 0.5
     # TurtleBot4 OAK-D camera topics
     rgb_topic: '/oakd/rgb/preview/image_raw'
-    depth_topic: '/oakd/stereo/image_raw'
+    depth_topic: "/oakd/rgb/preview/depth"
     camera_info_topic: '/oakd/rgb/preview/camera_info'
     camera_frame: 'oakd_rgb_camera_optical_frame'
-    save_path: '/ros2_ws/maps/semantic_map.json'
-    target_classes: ['person', 'chair', 'backpack', 'bottle', 'laptop', 'cup']
+    save_path: "/home/ubuntu/semantic_map.json"
+    target_classes: 
+      - "person"
+      - "chair"
+      - "couch"
+      - "potted plant"
+      - "bottle"
+      - "cup"
+      - "laptop"
+      - "backpack"
+      - "dining table"
+      - "bed"
