@@ -13,7 +13,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('use_sim_time', default_value='false'),
         
-        # Semantic Mapper - CHẠY TRÊN JETSON
+        # Semantic Mapper - JETSON
         Node(
             package='semantic_mapping',
             executable='semantic_mapper',
@@ -23,7 +23,7 @@ def generate_launch_description():
                 config_file,
                 {
                     'use_sim_time': use_sim_time,
-                    # Subscribe topics từ TurtleBot4
+                    # Subscribe topics TurtleBot4
                     'rgb_topic': '/oakd/rgb/preview/image_raw',
                     'depth_topic': '/oakd/rgb/preview/depth',
                     'camera_info_topic': '/oakd/rgb/preview/camera_info',
@@ -33,9 +33,9 @@ def generate_launch_description():
             ]
         ),
 
-        # Frontier Explorer - CHẠY TRÊN JETSON
+        # Frontier Explorer - JETSON
         TimerAction(
-            period=15.0,
+            period=10.0,
             actions=[
                 Node(
                     package='semantic_mapping',
@@ -51,6 +51,7 @@ def generate_launch_description():
                             'exploration_rate': 3.0,
                             'min_goal_distance': 0.8,
                             'max_goal_distance': 15.0,
+                            'enable_rotation_goals': True,
                         }
                     ]
                 )

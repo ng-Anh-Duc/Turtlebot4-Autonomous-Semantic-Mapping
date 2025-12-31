@@ -46,7 +46,7 @@ def generate_launch_description():
             }]
         ),
 
-        # 2. Semantic Mapper (Vẽ vật thể lên Map)
+        # 2. Semantic Mapper
         Node(
             package='semantic_mapping',
             executable='semantic_mapper',
@@ -56,7 +56,7 @@ def generate_launch_description():
                 config_file,
                 {
                     'use_sim_time': use_sim_time,
-                    # TurtleBot4 OAK-D topics (check với: ros2 topic list)
+                    # TurtleBot4 OAK-D topics
                     'rgb_topic': '/oakd/rgb/preview/image_raw',
                     'depth_topic': '/oakd/rgb/preview/image_raw/compressedDepth',
                     'camera_info_topic': '/oakd/rgb/preview/camera_info',
